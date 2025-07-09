@@ -29,9 +29,11 @@ const generateBotResponse = async (text) => {
   const data = await response.json();
   const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't respond.";
   chatHistory.push({ role: "model", parts: [{ text: reply }] });
-
-  const botMsg = createMessageElement(reply, "bot-message");
-  chatBody.appendChild(botMsg);
+  console.log("Bot reply:", reply);
+  
+  parseMarkdown(reply); 
+  console.log("Parsed reply:", reply);
+  
   chatBody.scrollTop = chatBody.scrollHeight;
 };
 
@@ -65,3 +67,14 @@ messageInput.addEventListener("keydown", (e) => {
 });
 
 sendMessage.addEventListener("click", sendMessageHandler);
+
+const parseMarkdown = (markdownText) => {
+  const html = marked.parse(markdownText);
+  const div = document.createElement("div");
+  div.className = "message bot-message";
+  div.innerHTML = html;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+};
+
+
