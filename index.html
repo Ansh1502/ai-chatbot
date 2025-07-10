@@ -3,35 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stylish Chatbot</title>
+  <title>Alpha Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-  <!-- Landing Screen -->
-  <section class="landing-screen">
-    <div class="welcome-text">
-      <h1>Welcome to Alpha Assistant</h1>
-      <p>Your smart virtual helper is just one click away.</p>
-      <button id="chatbot-toggler">Start Chat</button>
-    </div>
-  </section>
+  <div class="wave-container">
+    <!-- Landing -->
+    <section class="landing-screen">
+      <div class="welcome-box">
+        <h1>👋 Hello there!</h1>
+        <p>I'm Alpha Assistant – your friendly AI companion.</p>
+        <button id="chatbot-toggler">Let’s Chat</button>
+      </div>
+    </section>
 
+    <!-- Chat -->
+    <section class="chatbot-screen">
+      <div class="chat-header">
+        <span class="logo">🤖</span>
+        <h2>Alpha Assistant</h2>
+        <button id="close-chatbot" title="Close">×</button>
+      </div>
 
+      <div class="chat-body" id="chat-body"></div>
 
-  <!-- Chatbot UI -->
-  <section class="chatbot-screen">
-    <div class="chat-header">
-      <h2>Alpha Assistant</h2>
-      <button id="close-chatbot">×</button>
-    </div>
-    <div class="chat-body"></div>
-    <form class="chat-form">
-      <textarea class="message-input" placeholder="Type a message..." rows="1"></textarea>
-      <button id="send-message">Send</button>
-    </form>
-  </section>
-  
+      <form class="chat-form">
+        <textarea class="message-input" placeholder="Type your message…" rows="1"></textarea>
+        <button id="send-message" title="Send">➤</button>
+      </form>
+    </section>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
